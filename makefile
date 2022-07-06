@@ -1,5 +1,5 @@
-all: clean main.o chunk.o debug.o memory.o value.o
-	gcc main.o chunk.o debug.o memory.o value.o -o lox
+all: clean main.o chunk.o debug.o memory.o value.o vm.o
+	gcc main.o chunk.o debug.o memory.o value.o vm.o -o lox
 
 main.o:
 	gcc -I . -c main.c
@@ -15,6 +15,9 @@ memory.o:
 
 value.o:
 	gcc -I . -c value.c
+
+vm.o:
+	gcc -I . -c vm.c
 
 clean:
 	rm -f *.o
