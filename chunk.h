@@ -2,6 +2,7 @@
 #define clox_chunk_h
 
 #include "common.h"
+#include "memory.h"
 #include "value.h"
 
 typedef enum {
@@ -10,10 +11,20 @@ typedef enum {
 } OpCode;
 
 typedef struct {
+  int capacity;
+  int count;
+  int* lines;
+} LineArray;
+
+void initLineArray(LineArray* array);
+void writeLineArray(LineArray* array, int line);
+void freeLineArray(LineArray* array);
+
+typedef struct {
   int count;
   int capacity;
   uint8_t* code;
-  int* lines;
+  LineArray lines;
   ValueArray constants;
 } Chunk;
 
