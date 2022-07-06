@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 
 #include "chunk.h"
@@ -64,5 +65,17 @@ int addConstant(Chunk* chunk, Value value) {
 }
 
 int getLine(Chunk* chunk, int offset) {
-  return chunk->lines.lines[offset].number;
+  int lineRunIndex = 0;
+  int cumulativeOffset = 0;
+
+  for(int lineRunIndex = 0; lineRunIndex < chunk->lines.count; lineRunIndex++) {
+    cumulativeOffset += chunk->lines.lines[lineRunIndex].run;
+
+    if(cumulativeOffset > offset) {
+      return chunk->lines.lines[lineRunIndex].number;
+    }
+  }
+
+  fprintf(stderr, "%s\n", "Offset is outside line runs");
+  exit(1);
 }
