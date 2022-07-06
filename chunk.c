@@ -11,6 +11,11 @@ void initLineArray(LineArray* array) {
 }
 
 void writeLineArray(LineArray* array, int line) {
+  if (array->count > 0 && array->lines[array->count - 1].number == line) {
+    array->lines[array->count - 1].run++;
+    return;
+  }
+
   if (array->capacity < array->count + 1) {
     int oldCapacity = array->capacity;
     array->capacity = GROW_CAPACITY(oldCapacity);
