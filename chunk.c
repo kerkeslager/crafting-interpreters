@@ -13,16 +13,17 @@ void writeLineArray(LineArray* array, int line) {
   if (array->capacity < array->count + 1) {
     int oldCapacity = array->capacity;
     array->capacity = GROW_CAPACITY(oldCapacity);
-    array->lines = GROW_ARRAY(int, array->lines,
+    array->lines = GROW_ARRAY(LineRun, array->lines,
         oldCapacity, array->capacity);
   }
 
-  array->lines[array->count] = line;
+  array->lines[array->count].number = line;
+  array->lines[array->count].run = 1;
   array->count++;
 }
 
 void freeLineArray(LineArray* array) {
-  FREE_ARRAY(int, array->lines, array->capacity);
+  FREE_ARRAY(LineRun, array->lines, array->capacity);
   initLineArray(array);
 }
 
@@ -63,5 +64,5 @@ int addConstant(Chunk* chunk, Value value) {
 }
 
 int getLine(Chunk* chunk, int offset) {
-  return chunk->lines.lines[offset];
+  return chunk->lines.lines[offset].number;
 }

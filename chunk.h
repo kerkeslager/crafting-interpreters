@@ -11,9 +11,14 @@ typedef enum {
 } OpCode;
 
 typedef struct {
+  int number;
+  int run;
+} LineRun;
+
+typedef struct {
   int capacity;
   int count;
-  int* lines;
+  LineRun* lines;
 } LineArray;
 
 void initLineArray(LineArray* array);
