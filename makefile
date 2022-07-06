@@ -1,4 +1,4 @@
-all: main.o chunk.o debug.o memory.o value.o
+all: clean main.o chunk.o debug.o memory.o value.o
 	gcc main.o chunk.o debug.o memory.o value.o -o lox
 
 main.o:
