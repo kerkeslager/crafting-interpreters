@@ -17,5 +17,5 @@ value.o:
 	gcc -I . -c value.c
 
 clean:
-	rm *.o
-	rm lox
+	rm -f *.o
+	rm -f lox
