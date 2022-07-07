@@ -9,6 +9,7 @@ This is my code for working through the amazing book [Crafting Interpreters](htt
   - Chapter 15 Challenge 3 (expanding VM stacks) (or at least handle overflows gracefully)
   - Chapter 15 Challenge 4 (don't thrash stack within OPs) (already implemented this once, but broke the implementation when implementing Chapter 18)
   - Chapter 16 Challenge 1 (string interpolation)
+  - Chapter 18 Challenge 2 (more opcodes for common operations like `>=` or `!=`).
 * Interpreter features:
   - Get [the tests](https://github.com/munificent/craftinginterpreters/tree/master/test) working
   - Replace the REPL's rudimentary string reading with either GNU Readline or Linenoise
