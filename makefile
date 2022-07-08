@@ -1,5 +1,5 @@
-all: clean main.o chunk.o compiler.o debug.o memory.o scanner.o value.o vm.o
-	gcc main.o chunk.o compiler.o debug.o memory.o scanner.o value.o vm.o -o lox
+all: clean main.o chunk.o compiler.o debug.o memory.o object.o scanner.o value.o vm.o
+	gcc main.o chunk.o compiler.o debug.o memory.o object.o scanner.o value.o vm.o -o lox
 
 main.o:
 	gcc -I . -c main.c
@@ -7,7 +7,7 @@ main.o:
 chunk.o:
 	gcc -I . -c chunk.c
 
-compiler.o: scanner.o
+compiler.o:
 	gcc -I . -c compiler.c
 
 debug.o:
@@ -15,6 +15,9 @@ debug.o:
 
 memory.o:
 	gcc -I . -c memory.c
+
+object.o:
+	gcc -I . -c object.c
 
 scanner.o:
 	gcc -I . -c scanner.c
