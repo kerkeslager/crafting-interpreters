@@ -36,6 +36,17 @@ This is my code for working through the amazing book [Crafting Interpreters](htt
     * [Meow hash](https://github.com/cmuratori/meow_hash).
 * Code quality:
   - There are a bunch of spots where there's the comment `// Unreachable.` If it's really unreachable, we can assert that with `assert(false)` rather than failing silently there, and then probably failing later.
+  - > You can sum the stack effects of a series of instructions to get their total effect. When you add the stack effects of the series of instructions compiled from any complete expression, it will total one. Each expression leaves one result value on the stack.
+
+    > The bytecode for an entire statement has a total stack effect of zero. Since a statement produces no values, it ultimately leaves the stack unchanged, though it of course uses the stack while it’s doing its thing. This is important because when we get to control flow and looping, a program might execute a long series of statements. If each statement grew or shrank the stack, it might eventually overflow or underflow.
+
+    \- Robert Nystrom in *Crafting Interpeters* [21.1](https://craftinginterpreters.com/global-variables.html#statements)
+
+    This is a pretty big insight... and one it's useful to write assertions
+    around. We wouldn't want these assertions to execute in production, but
+    running tests with these assertions in place would potentially allow us
+    to catch a lot of errors.
+
 * Language features:
   - Handle comparisons with NaN and Infinity in floating point numbers (throwing an error seems more friendly than
     [the IEEE 754 Standard behavior](https://en.wikipedia.org/wiki/IEEE_754)).
