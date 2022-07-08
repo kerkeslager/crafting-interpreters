@@ -3,6 +3,7 @@
 This is my code for working through the amazing book [Crafting Interpreters](https://craftinginterpreters.com/).
 
 ## TODOs
+* <span style='color: #CC0000;'>Memory leak</span>: Since the code at time of this writing is at section 19.4.0, we've implemented part of the heap, but no memory freeing. Just putting this here to make sure we get back to it.
 * Challenges:
   - Chapter 14 Challenge 2 (allowing for more than 256 constants per chunk)
   - Chapter 14 Challenge 3 (implement and profile a few malloc/realloc/free implementations)
