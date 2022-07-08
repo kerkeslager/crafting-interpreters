@@ -16,6 +16,7 @@ This is my code for working through the amazing book [Crafting Interpreters](htt
   - Get [the tests](https://github.com/munificent/craftinginterpreters/tree/master/test) working
   - Replace the REPL's rudimentary string reading with either GNU Readline or Linenoise
   - Replace the argument parsing in main.c with [argp](https://www.gnu.org/software/libc/manual/html_node/Argp.html)
+* Optimizations:
   - Replace string concatenations with [ropes](https://en.wikipedia.org/wiki/Rope_(data_structure)).
   - In addition to supporting Ropes, let's look into lock-free thread-safe, reference-counted memory management for strings in a heap that is
     separate from the garbage collected heap.
@@ -23,6 +24,16 @@ This is my code for working through the amazing book [Crafting Interpreters](htt
     * Ropes are a simple case for reference counting since there can be no cycles.
     * Separating out heaps for non-cyclical data structures means that the GC'ed heap is smaller, which might improve performance on the GC'ed heap.
     * Final decisions should be based on profiling, not on the above hypotheses.
+  - Do performance analysis of hash probing algorithms in the open addressing scheme. The probing algorithms mentioned on the sidebar of
+    chapter 20 are:
+    * Double hashing
+    * Cuckoo hashing
+    * Robin Hood hashing
+  - Look into fast non-cryptographic hashes (keep looking for more other than this):
+    * [Pearson Hashing](
+    * [xxHash](https://cyan4973.github.io/xxHash/)
+    * t1ha. Rust implementation [here](https://lib.rs/crates/t1ha) but the original Github project seems to no longer exist. [This page](https://github.com/rurban/smhasher) might contain code?
+    * [Meow hash](https://github.com/cmuratori/meow_hash).
 * Code quality:
   - There are a bunch of spots where there's the comment `// Unreachable.` If it's really unreachable, we can assert that with `assert(false)` rather than failing silently there, and then probably failing later.
 * Language features:
