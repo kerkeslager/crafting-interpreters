@@ -15,6 +15,9 @@ This is my code for working through the amazing book [Crafting Interpreters](htt
   - Chapter 21 Challenge 1
   - Chapter 21 Challenge 2
   - Chapter 21 Challenge 3
+  - Chapter 22 Challenge 1 (resolve references to locals more efficiently)
+  - Chapter 22 Challenge 3 (constants) (do we even want to allow reassignment?)
+  - Chapter 22 Challenge 4 (allow more than 256 locals in scope)
 * Interpreter features:
   - Get [the tests](https://github.com/munificent/craftinginterpreters/tree/master/test) working
   - Replace the REPL's rudimentary string reading with either GNU Readline or Linenoise
