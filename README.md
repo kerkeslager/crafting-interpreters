@@ -12,6 +12,9 @@ This is my code for working through the amazing book [Crafting Interpreters](htt
   - Chapter 18 Challenge 2 (more opcodes for common operations like `>=` or `!=`).
   - Chapter 19 Challenge 1 (flexible array members)
   - Chapter 19 Challenge 2 (constant strings)
+  - Chapter 21 Challenge 1
+  - Chapter 21 Challenge 2
+  - Chapter 21 Challenge 3
 * Interpreter features:
   - Get [the tests](https://github.com/munificent/craftinginterpreters/tree/master/test) working
   - Replace the REPL's rudimentary string reading with either GNU Readline or Linenoise
